@@ -10,15 +10,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build -prod"
+    "postinstall": "ng build"
   },
   "engines": {
-    "node": "~6.10.3",
-    "npm": "~3.10.5"
+    "node": "~6.11.2",
+    "npm": "~3.10.10"
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "1.0.3",
+    "@angular/cli": "^1.0.3",
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler-cli": "^4.0.0",
