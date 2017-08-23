@@ -1,0 +1,27 @@
+body {
+    background-image: 'http://worldwarix.com/wp-content/uploads/2017/08/Download-Chelsea-Wallpapers-For-Mobile-Wallpaper-Desktop-Background-Full-Screen-HD-.-You-Can-Download-All-Your-Favorite-Free-Chelsea-Wallpapers-For-Mobile-for-PC-Backgrounds.jpg';
+
+}
+.head_title {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    margin: 0 auto;
+}
+img {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: 0 auto; 
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.images img:hover {
+    -webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+.main_team_block {
+        height: 400px;
+    }

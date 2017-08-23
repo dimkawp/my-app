@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+import {SuiModule} from 'ng2-semantic-ui';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent
   ],
   imports: [
+    SuiModule,
     BrowserModule,
     AppRoutingModule
   ],
