@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {SuiCheckboxModule, SuiRatingModule} from 'ng2-semantic-ui';
 
 import {SuiModule} from 'ng2-semantic-ui';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 
 export class Teams {
@@ -9,6 +12,10 @@ export class Teams {
   img: string;
   rating: string;
   completed: boolean;
+}
+
+export class Items {
+  name: string;
 }
 
 
@@ -20,6 +27,7 @@ export class Teams {
 })
  
 export class HomeComponent implements OnInit {
+items: Items[] = [{ name: 'archie' }, { name: 'jake' }, { name: 'richard' }];
 
 teams: Teams[] = [
   {
@@ -72,7 +80,6 @@ teams: Teams[] = [
   }
 ];
 
-
 team1 = [];
 team2 = [];
 IsVisible = true;
@@ -87,6 +94,11 @@ button_name ;
   ngOnInit() {
     
   }
+
+  filterItem(value){
+    console.log('valueeee');
+
+ }
 
   Close() {
     this.IsVisible = this.IsVisible ? false : true;

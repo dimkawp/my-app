@@ -1,15 +1,16 @@
+
 <div class="container"> 
   <div class="container ui right aligned">
     <div class="ui search">
       <div class="ui icon input">
-        <input #search class="prompt" type="text" placeholder="..." (ngModel)="asd">
+        <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
         <i class="search icon"></i>
       </div>
       <div class="results" style="margin-left: 900px;"></div>
     </div>
   </div>
   <div class="container ui grid segment main_team_block" *ngIf="IsVisible">
-      <div class="ui four wide column" *ngFor="let team of teams">
+      <div class="ui four wide column" *ngFor="let team of teams |filter:value">
           <div class="four wide column">
             <div class="head_title">
               <h4>{{ team.title }}</h4>

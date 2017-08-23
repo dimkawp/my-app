@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import {SuiModule} from 'ng2-semantic-ui';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -15,6 +19,9 @@ import {SuiModule} from 'ng2-semantic-ui';
   ],
   imports: [
     SuiModule,
+    FormsModule,
+    Ng2FilterPipeModule,
+    Ng2SearchPipeModule,
     BrowserModule,
     AppRoutingModule
   ],
