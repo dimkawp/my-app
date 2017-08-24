@@ -9,8 +9,10 @@
       <div class="results" style="margin-left: 900px;"></div>
     </div>
   </div>
+
   <div class="container ui grid segment main_team_block" *ngIf="IsVisible">
-      <div class="ui four wide column" *ngFor="let team of teams |filter:value">
+      <sui-progress class="top attached purple active" [value]="loader" [autoSuccess]="true"></sui-progress>
+      <div class="ui four wide column " *ngFor="let team of teams |filter:value">
           <div class="four wide column">
             <div class="head_title">
               <h4>{{ team.title }}</h4>
@@ -20,6 +22,7 @@
             </div>
             <div class="container ui center aligned button_block">
               <div>
+                <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
                 <i class="ban icon" (click)="DeleteTeam(team)"></i>
               </div>
             </div>  
@@ -28,13 +31,13 @@
   </div>
 
   <div class="container ui grid segment main_team_block" *ngIf="!IsVisible">
-          <div class="eight wide column ui center aligned">
+          <div class="eight wide column ui center aligned team_one">
               <h4> {{team1.title}}</h4>
               <div class="images">
                   <img src="{{ team1.img }}" alt="{{ team1.title }}">
                 </div>    
           </div>
-          <div class="eight wide column ui center aligned">
+          <div class="eight wide column ui center aligned team_two">
               <h4> {{team2.title}}</h4>
               <div class="images">
                   <img src="{{ team2.img }}" alt="{{ team2.title }}">
@@ -43,8 +46,9 @@
 
   </div>
 
-  <div class="container ui right aligned" >  
-    <button class="negative ui button right aligned " (click)="Close()" *ngIf="!IsVisible">Close</button>          
+  <div class="container ui right aligned" >
+    <!--<button class="negative ui button right aligned " (click)="Test()">TEST</button> --> 
+    <button class="negative ui button right aligned" (click)="Close()" *ngIf="!IsVisible">Close</button>          
     <button class="positive ui button right aligned " (click)="RandomTeam(teams)"  *ngIf="IsVisible">Random</button>
     <button class="blue ui button right aligned " (click)="Reset()">Reset </button>
   </div>   

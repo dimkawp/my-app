@@ -7,6 +7,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 
 
+
 export class Teams {
   title: string;
   img: string;
@@ -77,9 +78,35 @@ teams: Teams[] = [
       img: 'http://futhead.cursecdn.com/static/img/17/clubs_large/1.png',
       rating: '4',
       completed: false
-  }
+  },
+  {
+      title: 'ATLÉTICO MADRID',
+      img: 'http://futhead.cursecdn.com/static/img/17/clubs_large/240.png',
+      rating: '4',
+      completed: false
+  },
+  {
+    title: 'MANCHESTER CITY',
+    img: 'http://futhead.cursecdn.com/static/img/17/clubs_large/10.png',
+    rating: '4',
+    completed: false
+  },
+  {
+    title: 'BORUSSIA DORTMUND',
+    img: 'http://futhead.cursecdn.com/static/img/17/clubs_large/22.png',
+    rating: '4',
+    completed: false
+  },
+  {
+    title: 'LIVERPOOL',
+    img: 'http://futhead.cursecdn.com/static/img/17/clubs_large/9.png',
+    rating: '4',
+    completed: false
+  },
+  
 ];
-
+i = 0;
+loader = 100;
 team1 = [];
 team2 = [];
 IsVisible = true;
@@ -95,8 +122,16 @@ button_name ;
     
   }
 
-  filterItem(value){
-    console.log('valueeee');
+
+
+
+  Test(){
+    console.log('Test');
+
+      setTimeout(()=>{
+        this.loader =this.loader + 10;
+        console.log('timeout');
+      },1000);
 
  }
 
