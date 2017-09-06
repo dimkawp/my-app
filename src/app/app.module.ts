@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,8 +11,6 @@ import {SuiModule} from 'ng2-semantic-ui';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [
@@ -23,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     Ng2FilterPipeModule,
     Ng2SearchPipeModule,
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
