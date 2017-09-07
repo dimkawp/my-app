@@ -1,77 +1,106 @@
-
-
-
 <div class="ui container">
-  <sui-tabset>
-    <div class="ui top attached tabular menu">
-        <a class="item" suiTabHeader="1">Favorites</a>
-        <a class="item" suiTabHeader="2" (click)="PremierLeague()">Premier League</a>
-        <a class="item" suiTabHeader="3" (click)="PrimeraDivision()">PrimeraDivision</a>
-    </div>
-    <div class="ui bottom attached" suiTabContent="1">
-        <div class="container"> 
-            <div class="container ui right aligned">
-              <div class="ui search">
-                <div class="ui icon input">
-                  <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
-                  <i class="search icon"></i>
-                </div>
-                <div class="results" style="margin-left: 900px;"></div>
-              </div>
+<sui-tabset>
+  <div class="ui top attached tabular menu">
+      <a class="item" suiTabHeader="1">Favorites</a>
+      <a class="item" suiTabHeader="2" (click)="PremierLeague()">Premier League</a>
+      <a class="item" suiTabHeader="3" (click)="PrimeraDivision()">PrimeraDivision</a>
+      <a class="item" suiTabHeader="4" (click)="LigaOne()">LigaOne</a>
+  </div>
+  <div class="ui bottom attached" suiTabContent="1">
+    <div class="container"> 
+        <div class="container ui right aligned">
+          <div class="ui search">
+            <div class="ui icon input">
+              <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
+              <i class="search icon"></i>
             </div>
-          
-            <div class="container ui grid segment main_team_block" *ngIf="IsVisible">
-                <sui-progress class="top attached purple active" [value]="loader" [autoSuccess]="true"></sui-progress>
-                <div class="ui four wide column " *ngFor="let team of teams |filter:value">
-                    <div class="four wide column">
-                      <div class="head_title">
-                        <h4>{{ team.title }}</h4>
-                      </div>
-                      <div class="images">
-                        <img src="{{ team.img }}" alt="{{team.title}}">
-                      </div>
-                      <div class="container ui center aligned button_block">
-                        <div>
-                          <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
-                          <i class="ban icon" (click)="DeleteTeam(team)"></i>
-                        </div>
-                      </div>  
-                    </div>
-                </div>
-            </div>
-          
-            <div class="container ui grid segment main_team_block" *ngIf="!IsVisible">
-                    <div class="eight wide column ui center aligned team_one">
-                        <h4> {{team1.title}}</h4>
-                        <div class="images">
-                            <img src="{{ team1.img }}" alt="{{ team1.title }}">
-                          </div>    
-                    </div>
-                    <div class="eight wide column ui center aligned team_two">
-                        <h4> {{team2.title}}</h4>
-                        <div class="images">
-                            <img src="{{ team2.img }}" alt="{{ team2.title }}">
-                          </div>    
-                    </div>
-          
-            </div>
-          
-            <div class="container ui right aligned" >
-              <!--<button class="negative ui button right aligned " (click)="Test()">TEST</button> --> 
-               <!--<button class="negative ui button right aligned" (click)="Curl()">CURL</button> --> 
-              <button class="negative ui button right aligned" (click)="Close()" *ngIf="!IsVisible">Close</button>          
-              <button class="positive ui button right aligned " (click)="RandomTeam(teams)"  *ngIf="IsVisible">Random</button>
-              <button class="blue ui button right aligned " (click)="Reset()">Reset </button>
-            </div>   
+            <div class="results" style="margin-left: 900px;"></div>
           </div>
-      
-
-
+        </div>
+        <div class="container ui grid segment main_team_block" *ngIf="IsVisible" >
+            <sui-progress class="top attached purple active" [value]="loader" [autoSuccess]="true"></sui-progress>
+            <div class="ui four wide column " *ngFor="let team of teams |filter:value">
+                <div class="four wide column">
+                  <div class="head_title">
+                    <h4>{{ team.title }}</h4>
+                  </div>
+                  <div class="images">
+                    <img src="{{ team.img }}" alt="{{team.title}}">
+                  </div>
+                  <div class="container ui center aligned button_block">
+                    <div>
+                      <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
+                      <i class="ban icon" (click)="DeleteTeam(team)"></i>
+                    </div>
+                  </div>  
+                </div>
+            </div>
+        </div>
+        <div class="container ui grid segment main_team_block" *ngIf="!IsVisible">
+          <div class="eight wide column ui center aligned team_one">
+              <h4> {{team1.title}}</h4>
+              <div class="images">
+                <img src="{{ team1.img }}" alt="{{ team1.title }}">
+              </div>    
+          </div>
+          <div class="eight wide column ui center aligned team_two">
+              <h4> {{team2.title}}</h4>
+              <div class="images">
+                <img src="{{ team2.img }}" alt="{{ team2.title }}">
+              </div>    
+          </div>
+        </div>
+        <div class="container ui right aligned" >
+          <!--<button class="negative ui button right aligned " (click)="Test()">TEST</button> --> 
+          <!--<button class="negative ui button right aligned" (click)="isClassVisible = !isClassVisible;" [ngClass]="{'my-class': isClassVisible }">TEST</button> --> 
+          <button class="negative ui button right aligned" (click)="Close()" *ngIf="!IsVisible">Close</button>          
+          <button class="positive ui button right aligned " (click)="RandomTeam(teams)"  *ngIf="IsVisible">Random</button>
+          <button class="blue ui button right aligned " (click)="Reset()">Reset </button>
+        </div>   
+      </div>
+  </div>
+  <div class="ui bottom attached" suiTabContent="2" [ngClass]="{'loader': !isClassLoader }">
+    <div class="container ui right aligned" *ngIf="Complite">
+      <div class="ui search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
+          <i class="search icon"></i>
+        </div>
+        <div class="results" style="margin-left: 900px;"></div>
+      </div>
     </div>
-    <div class="ui bottom attached segment" suiTabContent="2">
-      <div class="container ui grid segment main_team_block" *ngIf="IsVisible">
-        <div class="ui four wide column " *ngFor="let team of resultsPremierLeague.teams |filter:value">
-            <div class="four wide column">
+    <div class="container ui grid segment main_team_block" *ngIf="Complite">
+      <div class="ui four wide column " *ngFor="let team of resultsPremierLeague.teams |filter:value">
+        <div class="four wide column">
+          <div class="head_title">
+            <h4>{{ team.name }}</h4>
+          </div>
+          <div class="images">
+            <img src="{{ team.crestUrl }}" alt="{{team.name}}">
+          </div>
+          <div class="container ui center aligned button_block">
+            <div>
+              <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
+              <i class="ban icon" (click)="DeleteTeam(team)"></i>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached" suiTabContent="3" [ngClass]="{'loader': !isClassLoader }">
+      <div class="container ui right aligned" *ngIf="Complite">
+        <div class="ui search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
+            <i class="search icon"></i>
+          </div>
+          <div class="results" style="margin-left: 900px;"></div>
+        </div>
+      </div>
+      <div class="container ui grid segment main_team_block" *ngIf="Complite">
+          <div class="ui four wide column " *ngFor="let team of resultsPrimeraDivision.teams |filter:value">
+              <div class="four wide column">
                 <div class="head_title">
                   <h4>{{ team.name }}</h4>
                 </div>
@@ -85,29 +114,38 @@
                   </div>
                 </div>  
               </div>
+          </div>
         </div>
+  </div>
+  <div class="ui bottom attached" suiTabContent="4" [ngClass]="{'loader': !isClassLoader }">
+    <div class="container ui right aligned" *ngIf="Complite">
+      <div class="ui search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="..." [(ngModel)]="value"> 
+          <i class="search icon"></i>
+        </div>
+        <div class="results" style="margin-left: 900px;"></div>
       </div>
     </div>
-    <div class="ui bottom attached segment" suiTabContent="3">
-        <div class="container ui grid segment main_team_block" *ngIf="IsVisible">
-            <div class="ui four wide column " *ngFor="let team of resultsPrimeraDivision.teams |filter:value">
-                <div class="four wide column">
-                    <div class="head_title">
-                      <h4>{{ team.name }}</h4>
-                    </div>
-                    <div class="images">
-                      <img src="{{ team.crestUrl }}" alt="{{team.name}}">
-                    </div>
-                    <div class="container ui center aligned button_block">
-                      <div>
-                        <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
-                        <i class="ban icon" (click)="DeleteTeam(team)"></i>
-                      </div>
-                    </div>  
-                  </div>
+    <div class="container ui grid segment main_team_block" *ngIf="Complite">
+        <div class="ui four wide column " *ngFor="let team of resultsLigaOne.teams |filter:value">
+            <div class="four wide column">
+              <div class="head_title">
+                <h4>{{ team.name }}</h4>
+              </div>
+              <div class="images">
+                <img src="{{ team.crestUrl }}" alt="{{team.name}}">
+              </div>
+              <div class="container ui center aligned button_block">
+                <div>
+                  <sui-rating class="star" [ngModel]=team.rating [maximum]="5"></sui-rating>
+                  <i class="ban icon" (click)="DeleteTeam(team)"></i>
+                </div>
+              </div>  
             </div>
-          </div>
-    </div>
-  </sui-tabset>
+        </div>
+      </div>
+</div>
+</sui-tabset>
 </div>
 
